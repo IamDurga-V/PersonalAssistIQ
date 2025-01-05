@@ -1,0 +1,89 @@
+.reminder-app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reminder-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .reminder-input,
+  .reminder-datetime-picker,
+  .reminder-time-input {
+    width: 100%; /* Make inputs full width */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
+  /* Additional styles for the date picker to ensure it matches */
+  .react-datepicker-wrapper {
+    width: 100%; /* Make the wrapper full width */
+  }
+  
+  .react-datepicker__input-container {
+    width: 100%; /* Ensure input inside the wrapper is full width */
+  }
+  
+  .reminder-add-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .reminder-add-button:hover {
+    background-color: #218838;
+  }
+  
+  .reminder-list-section {
+    margin-top: 20px;
+  }
+  
+  .reminder-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+  
+  .reminder-delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .reminder-delete-button:hover {
+    background-color: #c82333;
+  }
+
+  /* src/Reminder.css */
+.reminder-button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between buttons */
+    margin-top: 20px; /* Add some space above the buttons */
+}
+
+.reminder-add-button,
+.reminder-view-button {
+    flex: 1; /* Make buttons take equal space */
+    margin: 0 10px; /* Add horizontal spacing between buttons */
+    padding: 10px; /* Adjust padding for a better look */
+    font-size: 1rem; /* Adjust font size */
+    cursor: pointer; /* Change cursor to pointer */
+}
+

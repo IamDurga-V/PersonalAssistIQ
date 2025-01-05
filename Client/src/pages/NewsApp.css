@@ -1,0 +1,176 @@
+/* Ensure body does not enforce alignment globally */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.news-page-wrapper {
+  display: flex;  /* Only this wrapper will be flex-based */
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.news-app-container {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.news-app-header {
+  text-align: center;
+  margin-top: 0; /* Reset top margin */
+  font-size: 32px;
+  font-weight: bold;
+  padding: 20px 0; /* Ensure there's padding to make it stand out */
+}
+
+/* Navbar */
+.news-app-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+  padding: 10px;
+  margin-bottom: 20px; /* Add space below navbar */
+}
+
+.news-app-navbar h2 {
+  margin: 0;
+}
+
+.news-app-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.news-app-nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
+.news-app-search-bar {
+  display: flex;
+  align-items: center; /* Ensure all items are vertically aligned */
+  gap: 10px;
+}
+
+.news-app-search-bar input,
+.news-app-search-bar button {
+  height: 40px; /* Set same height for both */
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.news-app-search-bar input {
+  padding: 0 10px; /* Add padding only for horizontal spacing */
+  border: 1px solid #ddd;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.news-app-search-bar button {
+  padding: 0 15px; /* Horizontal padding only */
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.news-app-search-bar button:hover {
+  background-color: #005bb5;
+}
+
+
+
+/* Category Buttons */
+.news-app-category-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.news-app-category-btns button {
+  background-color: #ff6c6c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Cards */
+.news-app-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px; /* Add padding at the bottom */
+}
+
+.news-app-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures button stays at bottom */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #eee;
+}
+
+.news-app-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-app-card-content {
+  padding: 15px;
+  flex-grow: 1; /* Allows content to take up available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.news-app-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.news-app-card-title:hover {
+  color: #1e90ff;
+  text-decoration: underline;
+}
+
+.news-app-card p {
+  font-size: 14px;
+  margin-top: 10px;
+  flex-grow: 1; /* Allows description to fill available space */
+}
+
+.news-app-card button {
+  background-color: #1e90ff;
+  border: none;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  margin-top: auto; /* Positions button at bottom */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.news-app-card button:hover {
+  background-color: #005bb5;
+}

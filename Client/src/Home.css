@@ -1,0 +1,640 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #333;
+  background: linear-gradient(45deg, #7b4397, #dc2430); /* Gradient Dark Purple to Dark Pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #c9d6ff, #e2e2e2); /* Soft Lilac to Light Blue Gradient */
+}
+
+.container {
+  background: linear-gradient(135deg, #ece9e6, #ffffff); /* Light Grey to White */
+  padding: 32px 48px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container > h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #7b4397, #4b0082); /* Deep Lilac to Dark Purple */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container > form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.container input {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f8f9fa; /* Subtle background */
+}
+
+.container input:focus {
+  border: 1px solid;
+  border-image-source: linear-gradient(45deg, #4a90e2, #7b4397); /* Blue to Purple Gradient */
+  border-image-slice: 1;
+  background: #e1e9fc;
+}
+
+.container input::placeholder {
+  font-size: 14px;
+  color: #9b9b9b; /* Neutral grey */
+}
+
+button {
+  font-size: 16px;
+  padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #f953c6, #b91d73); /* Gradient Pink to Dark Pink */
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #b91d73, #7b4397); /* Darker Gradient Purple */
+}
+
+span {
+  font-size: 14px;
+  color: #3a4e88;
+}
+
+span a {
+  color: #d500f9;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+span a:hover {
+  text-decoration: underline;
+}
+
+
+/* Sidebar Styles */
+.custom-sidebar {
+  width: 80px; /* Start with collapsed width */
+  background: linear-gradient(135deg, 
+    #FFB3BA, /* Pastel Red */
+    #FFDFBA, /* Pastel Peach */
+    #FFFFBA, /* Pastel Yellow */
+    #BAFFB3, /* Pastel Green */
+    #BAE1FF, /* Pastel Blue */
+    #D7BAFF  /* Pastel Purple */
+  );
+  color: #ffffff; /* White for text */
+  position: fixed; /* Fixed position to stay on the screen */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  height: 100vh; /* Full height */
+  transition: width 0.3s ease; /* Smooth transition for width change */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Column layout */
+  z-index: 1000; /* Ensure it stays above other content */
+  overflow: hidden; /* Hide overflow content */
+  margin-right: 10px; /* Space between image and text */
+
+}
+
+.custom-sidebar.open {
+  width: 300px; /* Expanded width */
+}
+
+.custom-sidebar.closed {
+  width: 70px; /* Collapsed width */
+}
+
+/* Logo Area */
+.logo-area {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  padding: 20px; /* Spacing for logo area */
+  background-color: #1E3A8A; /* Dark background */
+}
+
+/* Logo Title */
+.logo-title {
+  font-size: 18px; /* Font size for the logo title */
+  font-weight: bold; /* Bold text */
+  color: #FFFFFF; /* White */
+  margin-left: 15px; /* Space between icon and title */
+}
+
+/* Navigation Menu */
+.nav-menu {
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  flex-grow: 1; /* Allow nav to grow */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Prevent interaction */
+  transition: opacity 0.3s, visibility 0.3s; /* Smooth transition */
+}
+
+.custom-sidebar.open .nav-menu {
+  opacity: 1; /* Show menu items */
+  visibility: visible; /* Make items clickable */
+}
+
+.nav-menu .nav-item {
+  position: relative; /* Position for tooltips */
+}
+
+/* Navigation Item Links */
+.nav-item a {
+  color: #FDFDFD; /* Text color for nav links */
+  text-decoration: none; /* Remove underline */
+  display: flex; /* Flexbox for the link */
+  align-items: center; /* Center items vertically */
+  padding: 15px 20px; /* Padding for nav items */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* Adjust the display of names based on sidebar state */
+.nav-item a .links_name {
+  display: none; /* Hide by default */
+  margin-left: 10px; /* Space between icon and text */
+}
+
+.custom-sidebar.open .nav-item a .links_name {
+  display: block; /* Show name when open */
+}
+
+/* Hover Effect */
+.nav-menu .nav-item a:hover {
+  background-color: lightpink; /* Hover background color */
+  color: #F8FAFC; /* Hover text color */
+}
+
+/* Search Item Styles */
+.search-item {
+  display: flex; /* Flexbox layout for search item */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Padding for search item */
+}
+
+/* Search Input Styles */
+.search-item input {
+  width: 100%; /* Full width for input */
+  padding: 5px; /* Padding for input */
+  border: 1px solid #E5E7EB; /* Light gray border */
+  border-radius: 5px; /* Rounded corners for input */
+  margin-left: 10px; /* Space between icon and input */
+  display: none; /* Hide by default */
+}
+
+.custom-sidebar.open .search-item input {
+  display: block; /* Show input when open */
+}
+
+/* Profile Item Styles */
+.profile-item {
+  margin-top: auto; /* Push the profile item to the bottom */
+  padding: 10px 20px; /* Spacing for profile item */
+  display: flex; /* Flexbox for profile item */
+  align-items: center; /* Center items vertically */
+  background: #1E3A8A; /* Profile item background */
+  color: #FDFDFD; /* Text color for profile item */
+}
+
+/* Profile Info */
+.profile-info {
+  margin-left: 10px; /* Space between image and text */
+  display: none; /* Hide by default */
+}
+
+.custom-sidebar.open .profile-info {
+  display: block; /* Show info when open */
+}
+
+/* Profile Name Styles */
+.profile-name {
+  font-weight: bold; /* Bold text for profile name */
+  color: #FFFFFF;
+  font-size:13px; /* White */
+}
+
+/* Profile Job Styles */
+.profile-job {
+  color: #F9FAFB; /* Light color for job title */
+}
+
+/* Profile Details */
+.profile-details {
+  display: flex; /* Flexbox for profile details */
+  align-items: center; /* Center items vertically */
+  font-size: smaller;
+}
+
+/* Profile Image */
+.profile-img {
+  width: 60px; /* Width for profile image */
+  height: 60px; /* Height for profile image */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between image and text */
+}
+
+/* Logout Button */
+#logout-btn {
+  margin-left: auto; /* Push logout icon to the far right */
+  color: #FF6F61; /* Logout icon color */
+  cursor: pointer; /* Pointer cursor for logout */
+}
+
+/* Toggle Icon Styles */
+.toggle-icon {
+  width: 30px; /* Width for the toggle icon */
+  height: 30px; /* Height for the toggle icon */
+  cursor: pointer; /* Pointer cursor for toggle */
+  position: absolute; /* Absolute positioning */
+  top: 20px; /* Space from the top */
+  right: 10px; /* Space from the right */
+  transition: transform 0.3s; /* Smooth rotation on toggle */
+}
+
+.custom-sidebar.open .toggle-icon {
+  transform: rotate(180deg); /* Rotate icon when sidebar is open */
+}
+
+/* Add hover effect for the toggle icon */
+.toggle-icon:hover {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  display: flex; /* Use flexbox for layout */
+  height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px; /* Fixed width for sidebar */
+  background-color: #333; /* Dark background color */
+  color: white; /* White text color */
+  transition: width 0.3s; /* Smooth transition for width changes */
+  padding: 20px; /* Padding for sidebar content */
+}
+
+/* Apply to the main content area to make it scrollable */
+.content {
+  margin-left: 300px; /* Space for sidebar */
+  height: calc(100vh - 50px); /* Full viewport height minus the top margin */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Padding for inner content */
+  box-sizing: border-box; /* Includes padding in height calculation */
+}
+
+/* Sections container styling */
+.sections-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Section styling */
+.section {
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Section background colors - Pastel shades */
+.task-management {
+  background-color: #a8d5e2; /* Soft pastel blue */
+}
+
+.weather-updates {
+  background-color: #f9d5a7; /* Light pastel orange */
+}
+
+.news-summarization {
+  background-color: #a4e4b5; /* Pastel green */
+}
+
+.calendar-integration {
+  background-color: #f7b6b2; /* Light pastel pink */
+}
+
+.reminders {
+  background-color: #d4a5db; /* Pastel lavender */
+}
+
+
+/* Card container styling */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Card styling */
+.card {
+  flex: 1 1 calc(50% - 15px);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  label {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #333;
+    background: linear-gradient(45deg, #7b4397, #dc2430); /* Gradient Dark Purple to Dark Pink */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to start */
+    align-items: flex-start; /* Aligns content to the top */
+    background: linear-gradient(135deg, #c9d6ff, #e2e2e2); /* Soft Lilac to Light Blue Gradient */
+  }
+  
+  .container {
+    background: linear-gradient(135deg, #ece9e6, #ffffff); /* Light Grey to White */
+    padding: 32px 48px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container > h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #7b4397, #4b0082); /* Deep Lilac to Dark Purple */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .container > form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .container div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f8f9fa; /* Subtle background */
+  }
+  
+  .container input:focus {
+    border: 1px solid;
+    border-image-source: linear-gradient(45deg, #4a90e2, #7b4397); /* Blue to Purple Gradient */
+    border-image-slice: 1;
+    background: #e1e9fc;
+  }
+  
+  .container input::placeholder {
+    font-size: 14px;
+    color: #9b9b9b; /* Neutral grey */
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #f953c6, #b91d73); /* Gradient Pink to Dark Pink */
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: linear-gradient(45deg, #b91d73, #7b4397); /* Darker Gradient Purple */
+  }
+  
+  span {
+    font-size: 14px;
+    color: #3a4e88;
+  }
+  
+  span a {
+    color: #d500f9;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  
+  span a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sidebar Styles */
+  .custom-sidebar {
+    width: 80px; /* Start with collapsed width */
+    background: linear-gradient(135deg, 
+      #FFB3BA, /* Pastel Red */
+      #FFDFBA, /* Pastel Peach */
+      #FFFFBA, /* Pastel Yellow */
+      #BAFFB3, /* Pastel Green */
+      #BAE1FF, /* Pastel Blue */
+      #D7BAFF  /* Pastel Purple */
+    );
+    color: #ffffff; /* White for text */
+    position: fixed; /* Fixed position to stay on the screen */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    height: 100vh; /* Full height */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Column layout */
+    z-index: 1000; /* Ensure it stays above other content */
+    overflow: hidden; /* Hide overflow content */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  .custom-sidebar.open {
+    width: 300px; /* Expanded width */
+  }
+  
+  .custom-sidebar.closed {
+    width: 70px; /* Collapsed width */
+  }
+  
+  /* Content Area Adjustments */
+  .content {
+    margin-left: 80px; /* Adjust for collapsed sidebar */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px; /* Padding for inner content */
+    box-sizing: border-box; /* Includes padding in height calculation */
+    transition: margin-left 0.3s ease; /* Smooth transition when sidebar toggles */
+  }
+  
+  .custom-sidebar.open + .content {
+    margin-left: 300px; /* Adjust for expanded sidebar */
+  }
+  
+  /* Sections container styling */
+  .sections-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* Section styling */
+  .section {
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Section background colors - Pastel shades */
+  .task-management {
+    background-color: #a8d5e2; /* Soft pastel blue */
+  }
+  
+  .weather-updates {
+    background-color: #f9d5a7; /* Light pastel orange */
+  }
+  
+  .news-summarization {
+    background-color: #a4e4b5; /* Pastel green */
+  }
+  
+  .calendar-integration {
+    background-color: #f7b6b2; /* Light pastel pink */
+  }
+  
+  .reminders {
+    background-color: #d4a5db; /* Pastel lavender */
+  }
+  
+  /* Card container styling */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  /* Card styling */
+  .card {
+    flex: 1 1 calc(50% - 15px);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .content { margin-left: 0; }
+    .card { flex: 1 1 calc(100% - 15px); }
+    .sections-container { grid-template-columns: 1fr; }
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .content { margin-left: 0; }
+  .card { flex: 1 1 calc(100% - 15px); }
+  .sections-container { grid-template-columns: 1fr; }
+}
+

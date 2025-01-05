@@ -1,0 +1,101 @@
+/* src/components/TaskList.css */
+.reminder-list-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reminder-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    flex: 1 1 calc(30% - 15px); /* 3 cards per row */
+    min-width: 250px; /* Ensure cards don't get too small */
+    transition: transform 0.2s;
+}
+
+/* Pastel colors for the cards */
+.reminder-card:nth-child(1) {
+    background-color: #ffb3ba; /* Light Pink */
+}
+
+.reminder-card:nth-child(2) {
+    background-color: #ffdfba; /* Light Orange */
+}
+
+.reminder-card:nth-child(3) {
+    background-color: #ffffba; /* Light Yellow */
+}
+
+.reminder-card:nth-child(4) {
+    background-color: #baffc9; /* Light Green */
+}
+
+.reminder-card:nth-child(5) {
+    background-color: #bae1ff; /* Light Blue */
+}
+
+.reminder-card:nth-child(6) {
+    background-color: #c9b2ff; /* Light Purple */
+}
+.reminder-card:nth-child(7) {
+    background-color: #ffb3ba; /* Light Pink */
+}
+
+.reminder-card:nth-child(8) {
+    background-color: #ffdfba; /* Light Orange */
+}
+
+.reminder-card:nth-child(9) {
+    background-color: #ffffba; /* Light Yellow */
+}
+
+.reminder-card:nth-child(10) {
+    background-color: #baffc9; /* Light Green */
+}
+
+.reminder-card:nth-child(11) {
+    background-color: #bae1ff; /* Light Blue */
+}
+
+.reminder-card:nth-child(12) {
+    background-color: #c9b2ff; /* Light Purple */
+}
+.reminder-card:hover {
+    transform: translateY(-5px);
+}
+
+.reminder-message {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555; /* Dark text color for better visibility */
+}
+
+.reminder-timestamp {
+    color: #333; /* Slightly lighter dark color */
+    font-size: 0.9rem;
+}
+
+.reminder-delete-button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white; /* Keeping delete button text white */
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reminder-delete-button:hover {
+    background-color: #e60000;
+}
